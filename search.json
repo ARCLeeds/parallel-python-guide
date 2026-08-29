@@ -1,0 +1,16 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Parallel Python Guide",
+    "section": "",
+    "text": "How much faster can Python become when we use multiple CPU cores?\nThis guide explores that question through a simple experiment: finding prime numbers over increasingly large ranges. Starting from a serial implementation, we progressively introduce Python’s multiprocessing module and investigate how different ways of distributing work affect performance.\nAlong the way, we will look at an important aspect of parallel computing that is easy to overlook: using more CPU cores does not automatically mean better performance.\n\nWhat we’ll explore\n\nWhy and when parallelism can be useful\nHow Python’s multiprocessing module works\nSerial versus parallel execution\nDistributing work across multiple processes\nThe overhead associated with multiprocessing\nHow dividing work into chunks can improve performance\nHow the number of chunks affects load balancing and execution time\nWhat CPU utilisation can tell us about a parallel program\n\n\n\nThe experiment\nWe will use prime-number searching as a deliberately simple computational problem. This allows us to focus on the mechanics of parallelisation rather than on the complexity of the underlying algorithm.\nWe will compare three approaches:\n\nSerial execution — one process performs all the work.\nPlain multiprocessing — individual numbers are distributed across multiple processes.\nChunked multiprocessing — the work is grouped into larger chunks before being distributed.\n\nThe experiments were originally run on an HPC system using a full node with 40 CPU cores and 192 GB of memory.\n\n\nReproducibility\nThe complete code used for the experiments, together with the computational environments and HPC job configuration, is available alongside this guide."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  }
+]
