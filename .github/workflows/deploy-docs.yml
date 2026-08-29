@@ -22,10 +22,10 @@ jobs:
         run: |
           quarto render
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          path: docs/_site
-
-      - name: Deploy
-        uses: actions/deploy-pages@v4
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site  # Quarto's default output
+          publish_branch: gh-pages  # The branch Pages will serve from
+          force_orphan: true  # Creates a clean gh-pages branch
