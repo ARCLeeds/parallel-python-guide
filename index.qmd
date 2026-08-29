@@ -1,7 +1,49 @@
 ---
-title: "prime-parallel-python"
+title: "Parallel Python Guide"
+author: "Patricia Ternes"
+editor: visual
+date: today
+format: 
+  html:
+    toc: true
+    toc_float: true
+    code-link: true
+    code-tools:
+      source: https://github.com/ARCLeeds/parallel-python-guide
+      toggle: true
 ---
 
-This is a Quarto website.
+---
+How much faster can Python become when we use multiple CPU cores?
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+This guide explores that question through a simple experiment: finding prime numbers over increasingly large ranges. Starting from a serial implementation, we progressively introduce Python's `multiprocessing` module and investigate how different ways of distributing work affect performance.
+
+Along the way, we will look at an important aspect of parallel computing that is easy to overlook: **using more CPU cores does not automatically mean better performance**.
+
+### What we'll explore
+
+* Why and when parallelism can be useful
+* How Python's `multiprocessing` module works
+* Serial versus parallel execution
+* Distributing work across multiple processes
+* The overhead associated with multiprocessing
+* How dividing work into chunks can improve performance
+* How the number of chunks affects load balancing and execution time
+* What CPU utilisation can tell us about a parallel program
+
+### The experiment
+
+We will use prime-number searching as a deliberately simple computational problem. This allows us to focus on the mechanics of parallelisation rather than on the complexity of the underlying algorithm.
+
+We will compare three approaches:
+
+1. **Serial execution** — one process performs all the work.
+2. **Plain multiprocessing** — individual numbers are distributed across multiple processes.
+3. **Chunked multiprocessing** — the work is grouped into larger chunks before being distributed.
+
+The experiments were originally run on an HPC system using a full node with 40 CPU cores and 192 GB of memory.
+
+### Reproducibility
+
+The complete code used for the experiments, together with the computational environments and HPC job configuration, is available alongside this guide.
+
